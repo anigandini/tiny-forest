@@ -640,18 +640,48 @@ function drawFairy(){
 // ═══════════════════════════════════════════════════════════
 // PANELS
 // ═══════════════════════════════════════════════════════════
-function openPanel(name){
+
+
+function openPanel(name) {
   closePanel();
-  G.activePanel=name;
-  document.getElementById('panel'+name.charAt(0).toUpperCase()+name.slice(1)).classList.add('open');
-  if(name==='fairy') drawFairy();
-}
-function closePanel(){
-  if(G.activePanel){
-    document.getElementById('panel'+G.activePanel.charAt(0).toUpperCase()+G.activePanel.slice(1)).classList.remove('open');
-    G.activePanel=null;
+
+  G.activePanel = name;
+
+  document
+    .getElementById(
+      'panel' + name.charAt(0).toUpperCase() + name.slice(1)
+    )
+    .classList.add('open');
+
+  if (name === 'fairy') {
+    drawFairy();
   }
 }
+
+function closePanel() {
+  if (G.activePanel) {
+    document
+      .getElementById(
+        'panel' +
+          G.activePanel.charAt(0).toUpperCase() +
+          G.activePanel.slice(1)
+      )
+      .classList.remove('open');
+
+    G.activePanel = null;
+  }
+}
+
+const btnJournal = document.getElementById('btnJournal');
+const btnFairy = document.getElementById('btnFairy');
+const btnClose = document.getElementsByClassName('closeBtn');
+
+Array.from(btnClose).forEach((el) => {
+  el.addEventListener('click', closePanel);
+});
+
+btnJournal.addEventListener('click', () => openPanel('journal'));
+btnFairy.addEventListener('click', () => openPanel('fairy'));
 
 // ═══════════════════════════════════════════════════════════
 // START
