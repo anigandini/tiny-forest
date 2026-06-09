@@ -13,7 +13,7 @@ export function initRenderer(canvas: HTMLCanvasElement): THREE.WebGLRenderer {
   renderer.shadowMap.type    = THREE.PCFSoftShadowMap;
   renderer.toneMapping       = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = 0.9;
-
+ 
   window.addEventListener('resize', () => {
     renderer.setSize(window.innerWidth, window.innerHeight);
   });

@@ -6,7 +6,7 @@ import { initPanels } from '../ui/Panels';
 
 export function startGame(): void {
   initScene();
-
+    
   buildJournalUI();
   buildFairyUI();
   initPanels();
